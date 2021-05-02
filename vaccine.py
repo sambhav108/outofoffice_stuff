@@ -22,7 +22,8 @@ def main():
 	retry = 1000
 	for q in range(retry):
 		date = 1
-		check_method("02-05-2021")
+		district_id = 294
+		check_method("02-05-2021", district_id)
 		print("waiting for 2 nd 1/2 minute")
 		time.sleep(30)
 		# 	time.sleep(60)
@@ -36,8 +37,8 @@ def main():
 			
 
 
-def check_method(date):
-		url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=294&date=%s" %date
+def check_method(date, district_id):
+		url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=%s&date=%s" %(district_id, date)
 		headers1 = { 'authority': 'cdn-api.co-vin.in',
  		'accept': 'application/json, text/plain, */*',
  		 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36',
