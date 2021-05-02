@@ -1,5 +1,7 @@
 import requests
 import time
+from datetime import date
+
 
 
 # curl = "curl 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=294&date=01-05-2021',
@@ -21,11 +23,14 @@ import time
 def main():
 	retry = 1000
 	for q in range(retry):
-		date = 1
+		today = date.today()
+		today = today.strftime("%d-%m-%Y")
+		print("Today's date:", today)
 		district_id = 294
-		check_method("02-05-2021", district_id)
+		check_method(today, district_id)
 		print("waiting for 2 nd 1/2 minute")
 		time.sleep(30)
+		
 		# 	time.sleep(60)
 		# while date <10 :
 		# 	date_s = "0%s-05-2021" %date
